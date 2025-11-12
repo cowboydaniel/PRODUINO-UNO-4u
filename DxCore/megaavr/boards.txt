@@ -4959,3 +4959,591 @@ azduinoboard.menu.flmap.unlocked.build.flmapabr=.ful
 azduinoboard.menu.flmap.locksection02.build.flmapabr=.fl2
 azduinoboard.menu.flmap.locksection1.build.flmapabr=.fl1
 azduinoboard.menu.flmap.locksection0.build.flmapabr=.fl0
+#_________________________________________________________________________________________#
+#                                                   #
+# Parameters and defaults for the PRODUINO UNO 4u   #
+#___________________________________________________#
+produinouno4u.upload.tool=avrdude
+produinouno4u.upload.prog_interlock=
+produinouno4u.build.board=avrda
+produinouno4u.build.core=dxcore
+produinouno4u.upload.maximum_size=0
+produinouno4u.upload.maximum_data_size=0
+# The maximum size and data size attributes are overridden by the selected chip. If you are avoiding specifying that somehow, there is no hope of anything working, so don't do that.
+# Each top-level entry supports at least a dozen parts with varying memory constraints.
+produinouno4u.build.f_cpu={build.speed}000000L
+produinouno4u.build.text_section_start=.text=0x0
+produinouno4u.build.extra_flags= {bootloader.appspm}
+produinouno4u.build.export_merged_output=false
+produinouno4u.build.printf=
+produinouno4u.build.flmapopts=
+produinouno4u.build.attachmode=-DCORE_ATTACH_ALL
+
+#----------------------------------------#
+# Bootloading parameters and fuses       #
+#________________________________________#
+produinouno4u.bootloader.tool=avrdude
+produinouno4u.bootloader.WDTCFG=0b{bootloader.wdtwindowbits}{bootloader.wdttimeoutbits}
+produinouno4u.bootloader.wdtwindowbits=0000
+produinouno4u.bootloader.wdttimeotbits=0000
+produinouno4u.bootloader.BODCFG=0b{bootloader.bodlevbits}{bootloader.bodmodebits}
+produinouno4u.bootloader.SYSCFG0=0b1100100{bootloader.eesavebit}
+produinouno4u.bootloader.CODESIZE=0x00
+produinouno4u.bootloader.BOOTSIZE=0x01
+# Note that BOOTSIZE is overridden by App SPM menu's default option - this way is just less verbose.
+produinouno4u.bootloader.avrdudestring=
+produinouno4u.bootloader.pymcuprogstring=-aerase
+
+#----------------------------------------#
+# Exported hex/lst/map names will        #
+# indicate selected options. These       #
+# are only to do that, nothing else      #
+#________________________________________#
+produinouno4u.build.mcupostfix=
+produinouno4u.build.printfabr=
+produinouno4u.build.attachabr=
+produinouno4u.build.wireabr=
+produinouno4u.build.flmapabr=.ful
+produinouno4u.build.appspmabr=.spm{bootloader.CODESIZE}
+
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^#
+# AVR-DA submenu options                     #
+#____________________________________________#
+# Chip (memory and pincount)             #
+#________________________________________#
+produinouno4u.menu.chip.avr128da28=AVR128DA28
+produinouno4u.menu.chip.avr128da28.build.mcu=avr128da28
+produinouno4u.menu.chip.avr128da28.upload.maximum_size=131072
+produinouno4u.menu.chip.avr128da28.upload.maximum_data_size=16384
+produinouno4u.menu.chip.avr128da28.build.variant=Produino-Uno4u
+
+#----------------------------------------#
+# Clock speed and source options         #
+#________________________________________#
+produinouno4u.menu.clock.24internal=24 MHz internal
+produinouno4u.menu.clock.24internal.build.speed=24
+produinouno4u.menu.clock.24internal.build.clocksource=0
+produinouno4u.menu.clock.20internal=20 MHz internal
+produinouno4u.menu.clock.20internal.build.speed=20
+produinouno4u.menu.clock.20internal.build.clocksource=0
+produinouno4u.menu.clock.16internal=16 MHz internal
+produinouno4u.menu.clock.16internal.build.speed=16
+produinouno4u.menu.clock.16internal.build.clocksource=0
+produinouno4u.menu.clock.12internal=12 MHz internal
+produinouno4u.menu.clock.12internal.build.speed=12
+produinouno4u.menu.clock.12internal.build.clocksource=0
+produinouno4u.menu.clock.10internal=10 MHz internal
+produinouno4u.menu.clock.10internal.build.speed=10
+produinouno4u.menu.clock.10internal.build.clocksource=0
+produinouno4u.menu.clock.8internal=8 MHz internal
+produinouno4u.menu.clock.8internal.build.speed=8
+produinouno4u.menu.clock.8internal.build.clocksource=0
+produinouno4u.menu.clock.5internal=5 MHz internal
+produinouno4u.menu.clock.5internal.build.speed=5
+produinouno4u.menu.clock.5internal.build.clocksource=0
+produinouno4u.menu.clock.4internal=4 MHz internal
+produinouno4u.menu.clock.4internal.build.speed=4
+produinouno4u.menu.clock.4internal.build.clocksource=0
+produinouno4u.menu.clock.1internal=1 MHz internal
+produinouno4u.menu.clock.1internal.build.speed=1
+produinouno4u.menu.clock.1internal.build.clocksource=0
+produinouno4u.menu.clock.28internal=28 MHz internal (overclocked)
+produinouno4u.menu.clock.28internal.build.speed=28
+produinouno4u.menu.clock.28internal.build.clocksource=0
+produinouno4u.menu.clock.32internal=32 MHz internal (overclocked)
+produinouno4u.menu.clock.32internal.build.speed=32
+produinouno4u.menu.clock.32internal.build.clocksource=0
+
+#----------------------------------------#
+# BrownOut detection (BOD) options       #
+#________________________________________#
+produinouno4u.menu.bodvoltage.1v9=1.9V
+produinouno4u.menu.bodvoltage.1v9.bootloader.bodlevbits=000
+produinouno4u.menu.bodvoltage.2v45=2.45V
+produinouno4u.menu.bodvoltage.2v45.bootloader.bodlevbits=001
+produinouno4u.menu.bodvoltage.2v70=2.70V
+produinouno4u.menu.bodvoltage.2v70.bootloader.bodlevbits=010
+produinouno4u.menu.bodvoltage.2v85=2.85V
+produinouno4u.menu.bodvoltage.2v85.bootloader.bodlevbits=011
+produinouno4u.menu.bodvoltage.rsvd1=Mystery1
+produinouno4u.menu.bodvoltage.rsvd1.bootloader.bodlevbits=100
+produinouno4u.menu.bodvoltage.rsvd2=Mystery2
+produinouno4u.menu.bodvoltage.rsvd2.bootloader.bodlevbits=101
+produinouno4u.menu.bodvoltage.rsvd3=Mystery3
+produinouno4u.menu.bodvoltage.rsvd3.bootloader.bodlevbits=110
+produinouno4u.menu.bodvoltage.rsvd4=Mystery4
+produinouno4u.menu.bodvoltage.rsvd4.bootloader.bodlevbits=111
+produinouno4u.menu.bodmode.disabled=Disabled/Disabled
+produinouno4u.menu.bodmode.enabled=Enabled/Enabled
+produinouno4u.menu.bodmode.ensampfast=Enabled/Sampled (128 Hz)
+produinouno4u.menu.bodmode.ensampslow=Enabled/Sampled (32 Hz)
+produinouno4u.menu.bodmode.sampledfast=Sampled/Sampled (128 Hz)
+produinouno4u.menu.bodmode.sampledslow=Sampled/Sampled (32 Hz)
+produinouno4u.menu.bodmode.sampdisfast=Sampled/Disabled (128 Hz)
+produinouno4u.menu.bodmode.sampdisslow=Sampled/Disabled (32 Hz)
+produinouno4u.menu.bodmode.endisholdwake=Enabled hold wakeup/Disabled
+produinouno4u.menu.bodmode.disabled.bootloader.BODCFG=0x00
+produinouno4u.menu.bodmode.enabled.bootloader.bodmodebits=00101
+produinouno4u.menu.bodmode.ensampfast.bootloader.bodmodebits=00110
+produinouno4u.menu.bodmode.ensampslow.bootloader.bodmodebits=10110
+produinouno4u.menu.bodmode.samplefast.bootloader.bodmodebits=01010
+produinouno4u.menu.bodmode.sampleslow.bootloader.bodmodebits=11010
+produinouno4u.menu.bodmode.sampdisfast.bootloader.bodmodebits=01000
+produinouno4u.menu.bodmode.sampdisslow.bootloader.bodmodebits=11000
+produinouno4u.menu.bodmode.endisholdwake.bootloader.bodmodebits=01100
+
+#----------------------------------------#
+# Retain EEPROM (EESAVE)                 #
+#________________________________________#
+produinouno4u.menu.eesave.enable=EEPROM retained
+produinouno4u.menu.eesave.enable.bootloader.eesavebit=1
+produinouno4u.menu.eesave.disable=EEPROM not retained
+produinouno4u.menu.eesave.disable.bootloader.eesavebit=0
+
+#----------------------------------------#
+# millis/micros timing source            #
+#________________________________________#
+produinouno4u.menu.millis.tcb2=TCB2 (recommended)
+produinouno4u.menu.millis.disabled=Disabled
+produinouno4u.menu.millis.tcb0=TCB0
+produinouno4u.menu.millis.tcb1=TCB1
+produinouno4u.menu.millis.tca0=TCA0
+produinouno4u.menu.millis.tcb0.build.millistimer=B0
+produinouno4u.menu.millis.tcb1.build.millistimer=B1
+produinouno4u.menu.millis.tcb2.build.millistimer=B2
+produinouno4u.menu.millis.tca0.build.millistimer=A0
+produinouno4u.menu.millis.disabled.build.millistimer=NONE
+
+#----------------------------------------#
+# printf() version options               #
+#________________________________________#
+produinouno4u.menu.printf.default=Default, 1.5k flash, no floats
+produinouno4u.menu.printf.full=Full, 2.6k, prints floats
+produinouno4u.menu.printf.full.build.printf=-Wl,-u,vfprintf -lprintf_flt
+produinouno4u.menu.printf.full.build.printfabr=.pfF
+produinouno4u.menu.printf.minimal=Minimal, 1.1k flash used
+produinouno4u.menu.printf.minimal.build.printf=-Wl,-u,vfprintf -lprintf_min
+produinouno4u.menu.printf.minimal.build.printfabr=.pfM
+
+#----------------------------------------#
+# attachInterrupt Mode                   #
+#________________________________________#
+produinouno4u.menu.attach.allenabled=On all pins, with new implementation.
+produinouno4u.menu.attach.allenabled.build.attachmode=-DCORE_ATTACH_ALL
+produinouno4u.menu.attach.manual=Only enabled ports. Please see documentation
+produinouno4u.menu.attach.manual.build.attachmode=-DCORE_ATTACH_NONE
+produinouno4u.menu.attach.oldversion=Old version, (may fix bugs)
+produinouno4u.menu.attach.oldversion.build.attachmode=-DCORE_ATTACH_OLD
+produinouno4u.menu.attach.manual.build.attachabr=.aMan
+produinouno4u.menu.attach.oldversion.build.attachabr=.aOld
+
+#----------------------------------------#
+# Startup time options                   #
+#________________________________________#
+produinouno4u.menu.startuptime.8=8ms
+produinouno4u.menu.startuptime.1=0ms
+produinouno4u.menu.startuptime.1=1ms
+produinouno4u.menu.startuptime.2=2ms
+produinouno4u.menu.startuptime.4=4ms
+produinouno4u.menu.startuptime.16=16ms
+produinouno4u.menu.startuptime.32=32ms
+produinouno4u.menu.startuptime.64=64ms
+produinouno4u.menu.startuptime.0.bootloader.SYSCFG1=0x00
+produinouno4u.menu.startuptime.1.bootloader.SYSCFG1=0x01
+produinouno4u.menu.startuptime.2.bootloader.SYSCFG1=0x02
+produinouno4u.menu.startuptime.4.bootloader.SYSCFG1=0x03
+produinouno4u.menu.startuptime.8.bootloader.SYSCFG1=0x04
+produinouno4u.menu.startuptime.16.bootloader.SYSCFG1=0x05
+produinouno4u.menu.startuptime.32.bootloader.SYSCFG1=0x06
+produinouno4u.menu.startuptime.64.bootloader.SYSCFG1=0x07
+
+#-------------------------------------#
+#         Wire Mode Selection         #
+# To enable TWI1 or master+slave mode #
+#_____________________________________#
+produinouno4u.menu.wiremode.mors=1x Wire, Master or Slave (least Flash & RAM)
+produinouno4u.menu.wiremode.mors.build.wiremode=MORS_SINGLE
+produinouno4u.menu.wiremode.mors.build.wireabr=.wO
+produinouno4u.menu.wiremode.mands=1x Wire, Master and Slave
+produinouno4u.menu.wiremode.mands.build.wiremode=MANDS_SINGLE
+produinouno4u.menu.wiremode.mands.build.wireabr=.wA
+
+#----------------------------------------#
+# Flash Mapping options                  #
+#________________________________________#
+produinouno4u.menu.flmap.lockdefault=Use last FLMAP section, lock FLMAP, provide PROGMEM_MAPPED
+produinouno4u.menu.flmap.unlocked=Start w/default, do not lock flmap. No PROGMEM_MAPPED.
+produinouno4u.menu.flmap.locksection02=Set FLMAP to section 2, lock FLMAP, provide PROGMEM_MAPPED
+produinouno4u.menu.flmap.locksection1=Set FLMAP to section 1, lock FLMAP, provide PROGMEM_MAPPED
+produinouno4u.menu.flmap.locksection0=Set FLMAP to section 0, lock FLMAP, provide PROGMEM_MAPPED
+produinouno4u.menu.flmap.lockdefault.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION3
+produinouno4u.menu.flmap.unlocked.build.flmapopts=
+produinouno4u.menu.flmap.locksection02.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION2
+produinouno4u.menu.flmap.locksection1.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION1
+produinouno4u.menu.flmap.locksection0.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION0
+produinouno4u.menu.flmap.lockdefault.build.flmapabr=.fld
+produinouno4u.menu.flmap.unlocked.build.flmapabr=.ful
+produinouno4u.menu.flmap.locksection02.build.flmapabr=.fl2
+produinouno4u.menu.flmap.locksection1.build.flmapabr=.fl1
+produinouno4u.menu.flmap.locksection0.build.flmapabr=.fl0
+
+#----------------------------------------#
+# SPM (writing flash from app)           #
+#________________________________________#
+produinouno4u.menu.appspm.no=Disabled (Always use this if not writing flash from app)
+produinouno4u.menu.appspm.no.bootloader.appspm=
+produinouno4u.menu.appspm.no.bootloader.BOOTSIZE=0x00
+produinouno4u.menu.appspm.no.build.appspmabr=
+produinouno4u.menu.appspm.full=Anywhere after 0x0200 (Warning: App allowed to overwrite itself)
+produinouno4u.menu.appspm.full.bootloader.appspm=-DSPM_FROM_APP=-1
+produinouno4u.menu.appspm.full.build.appspmabr=.spmALL
+produinouno4u.menu.appspm.16plus=Above 16k
+produinouno4u.menu.appspm.16plus.bootloader.appspm=-DSPM_FROM_APP=32
+produinouno4u.menu.appspm.16plus.bootloader.CODESIZE=32
+produinouno4u.menu.appspm.24plus=Above 24k
+produinouno4u.menu.appspm.24plus.bootloader.appspm=-DSPM_FROM_APP=48
+produinouno4u.menu.appspm.24plus.bootloader.CODESIZE=48
+produinouno4u.menu.appspm.64plus=Above 64k (AVR128 only)
+produinouno4u.menu.appspm.64plus.bootloader.appspm=-DSPM_FROM_APP=128
+produinouno4u.menu.appspm.64plus.bootloader.CODESIZE=128
+produinouno4u.menu.appspm.80plus=Above 80k (AVR128 only)
+produinouno4u.menu.appspm.80plus.bootloader.appspm=-DSPM_FROM_APP=160
+produinouno4u.menu.appspm.80plus.bootloader.CODESIZE=160
+produinouno4u.menu.appspm.96plus=Above 96k (AVR128 only)
+produinouno4u.menu.appspm.96plus.bootloader.appspm=-DSPM_FROM_APP=192
+produinouno4u.menu.appspm.96plus.bootloader.CODESIZE=192
+produinouno4u.menu.appspm.112plus=Above 112k (AVR128 only)
+produinouno4u.menu.appspm.112plus.bootloader.appspm=-DSPM_FROM_APP=224
+produinouno4u.menu.appspm.112plus.bootloader.CODESIZE=224
+produinouno4u.menu.appspm.120plus=Above 120k (AVR128 only)
+produinouno4u.menu.appspm.120plus.bootloader.appspm=-DSPM_FROM_APP=240
+produinouno4u.menu.appspm.120plus.bootloader.CODESIZE=240
+
+#----------------------------------------#
+# WDT MODE                               #
+#________________________________________#
+produinouno4u.menu.WDTtimeout.disabled=Disabled (recommended)
+produinouno4u.menu.WDTtimeout.8seconds=Window remains open for 8 Seconds
+produinouno4u.menu.WDTtimeout.4seconds=Window remains open for 4 Seconds
+produinouno4u.menu.WDTtimeout.2seconds=Window remains open for 2 Seconds
+produinouno4u.menu.WDTtimeout.1second=Window remains open for 1 Second
+produinouno4u.menu.WDTtimeout.500msec=Window remains open for 500 milliseconds
+produinouno4u.menu.WDTtimeout.250msec=Window remains open for 250 milliseconds
+produinouno4u.menu.WDTtimeout.125msec=Window remains open for 125 milliseconds
+produinouno4u.menu.WDTtimeout.63msec=Window remains open for 62.5 milliseconds
+produinouno4u.menu.WDTwindow.disabled=No delay before window "opens"
+produinouno4u.menu.WDTwindow.8seconds=8 Second before window "opens"
+produinouno4u.menu.WDTwindow.4seconds=4 Second before window "opens"
+produinouno4u.menu.WDTwindow.2seconds=2 Second before window "opens"
+produinouno4u.menu.WDTwindow.1second=1 Second before window "opens"
+produinouno4u.menu.WDTwindow.500msec=500 millisecond before window "opens"
+produinouno4u.menu.WDTwindow.250msec=250 millisecond before window "opens"
+produinouno4u.menu.WDTwindow.125msec=125 millisecond before window "opens"
+produinouno4u.menu.WDTwindow.63msec=62.5 millisecond before window "opens"
+produinouno4u.menu.WDTtimeout.disabled.bootloader.wdttimeoutbits=0000
+produinouno4u.menu.WDTtimeout.8seconds.bootloader.wdttimeoutbits=1011
+produinouno4u.menu.WDTtimeout.4seconds.bootloader.wdttimeoutbits=1010
+produinouno4u.menu.WDTtimeout.2seconds.bootloader.wdttimeoutbits=1001
+produinouno4u.menu.WDTtimeout.1second.bootloader.wdttimeoutbits=1000
+produinouno4u.menu.WDTtimeout.500msec.bootloader.wdttimeoutbits=0111
+produinouno4u.menu.WDTtimeout.250msec.bootloader.wdttimeoutbits=0110
+produinouno4u.menu.WDTtimeout.125msec.bootloader.wdttimeoutbits=0101
+produinouno4u.menu.WDTtimeout.63msec.bootloader.wdttimeoutbits=0100
+produinouno4u.menu.WDTwindow.disabled.bootloader.wdtwindowbits=0000
+produinouno4u.menu.WDTwindow.8seconds.bootloader.wdtwindowbits=1011
+produinouno4u.menu.WDTwindow.4seconds.bootloader.wdtwindowbits=1010
+produinouno4u.menu.WDTwindow.2seconds.bootloader.wdtwindowbits=1001
+produinouno4u.menu.WDTwindow.1second.bootloader.wdtwindowbits=1000
+produinouno4u.menu.WDTwindow.500msec.bootloader.wdtwindowbits=0111
+produinouno4u.menu.WDTwindow.250msec.bootloader.wdtwindowbits=0110
+produinouno4u.menu.WDTwindow.125msec.bootloader.wdtwindowbits=0101
+produinouno4u.menu.WDTwindow.63msec.bootloader.wdtwindowbits=0100
+
+########################################################################
+#                                                                      #
+#  #   # #   #  ###         #  #   #           ###          #          #
+#  #   # ##  # #   #      # #  #   #          #   #        ###  ##     #
+#  #   # # # # #   #     #  #  #   #          #   #  ###    #          #
+#  #   # #  ## #   #    ###### #   #          #   #  #  #   #   ##     #
+#   ###  #   #  ###         #   ###            ###   ###    #   ##     #
+#______________________________________________________#_______________#
+#                                                 #    #
+# Parameters and defaults for the PRODUINO UNO 4u #
+#_________________________________________________#
+produinouno4uopti.build.board=avrda
+produinouno4uopti.build.core=dxcore
+produinouno4uopti.upload.maximum_size=0
+produinouno4uopti.upload.maximum_data_size=0
+# The maximum size and data size attributes are overridden by the selected chip. If you are avoiding specifying that somehow, there is no hope of anything working, so don't do that.
+# Each top-level entry supports at least a dozen parts with varying memory constraints.
+produinouno4uopti.build.f_cpu={build.speed}000000L
+produinouno4uopti.build.text_section_start=.text=0x200
+produinouno4uopti.build.extra_flags= -DSERIAL_PORT_BOOT=Serial -DSERIAL_PORT_BOOT_PORTMUX=0 -DUSING_OPTIBOOT
+produinouno4uopti.build.export_merged_output=true
+produinouno4uopti.build.printf=
+produinouno4uopti.build.flmapopts=
+produinouno4uopti.build.attachmode=-DCORE_ATTACH_ALL
+
+#----------------------------------------#
+# Bootloading parameters and fuses       #
+#________________________________________#
+produinouno4uopti.bootloader.tool=avrdude
+produinouno4uopti.bootloader.defaultentrycond=_extrf
+produinouno4uopti.bootloader.entrycond=_extr
+produinouno4uopti.bootloader.file={runtime.platform.path}/bootloaders/hex/optiboot_uno4u_ser0{bootloader.entrycond}.hex
+produinouno4uopti.bootloader.WDTCFG=0b{bootloader.wdtwindowbits}{bootloader.wdttimeoutbits}
+produinouno4uopti.bootloader.wdtwindowbits=0000
+produinouno4uopti.bootloader.wdttimeotbits=0000
+produinouno4uopti.bootloader.BODCFG=0b{bootloader.bodlevbits}{bootloader.bodmodebits}
+produinouno4uopti.bootloader.SYSCFG0=0b11001000
+produinouno4uopti.bootloader.CODESIZE=0x00
+produinouno4uopti.bootloader.BOOTSIZE=0x01
+produinouno4uopti.bootloader.avrdudestring=-Uflash:w:{bootloader.file}:i
+produinouno4uopti.bootloader.pymcuprogstring=-f "{bootloader.file}" -a write
+
+#----------------------------------------#
+# Upload parameters for Optiboot         #
+#________________________________________#
+produinouno4uopti.upload.tool=avrdude
+produinouno4uopti.upload.protocol=arduino
+produinouno4uopti.upload.extra_params=-D
+produinouno4uopti.upload.speed=115200
+produinouno4uopti.upload.prog_interlock="ERROR: Upload using programmer is not supported on optiboot boards"
+
+#----------------------------------------#
+# Exported hex/lst/map names will        #
+# indicate selected options. These       #
+# are only to do that, nothing else      #
+#________________________________________#
+produinouno4uopti.build.mcupostfix=opti
+produinouno4uopti.build.printfabr=
+produinouno4uopti.build.flmapabr=.ful
+produinouno4uopti.build.attachabr=
+produinouno4uopti.build.wireabr=
+produinouno4uopti.build.appspmabr=
+
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^#
+# AVR-DA (Optiboot) submenu options          #
+#____________________________________________#
+#                                        #
+# Chip (memory and pincount)             #
+#________________________________________#
+produinouno4uopti.menu.chip.avr128da28=AVR128DA28
+produinouno4uopti.menu.chip.avr128da28.build.mcu=avr128da28
+produinouno4uopti.menu.chip.avr128da28.upload.maximum_size=130560
+produinouno4uopti.menu.chip.avr128da28.bootloader.class=optiboot_128dx
+produinouno4uopti.menu.chip.avr128da28.upload.maximum_data_size=16384
+produinouno4uopti.menu.chip.avr128da28.build.variant=Produino-Uno4u
+
+#----------------------------------------#
+# Clock speed and source options         #
+#________________________________________#
+produinouno4uopti.menu.clock.24internal=24 MHz internal
+produinouno4uopti.menu.clock.24internal.build.speed=24
+produinouno4uopti.menu.clock.24internal.build.clocksource=0
+produinouno4uopti.menu.clock.20internal=20 MHz internal
+produinouno4uopti.menu.clock.20internal.build.speed=20
+produinouno4uopti.menu.clock.20internal.build.clocksource=0
+produinouno4uopti.menu.clock.16internal=16 MHz internal
+produinouno4uopti.menu.clock.16internal.build.speed=16
+produinouno4uopti.menu.clock.16internal.build.clocksource=0
+produinouno4uopti.menu.clock.12internal=12 MHz internal
+produinouno4uopti.menu.clock.12internal.build.speed=12
+produinouno4uopti.menu.clock.12internal.build.clocksource=0
+produinouno4uopti.menu.clock.10internal=10 MHz internal
+produinouno4uopti.menu.clock.10internal.build.speed=10
+produinouno4uopti.menu.clock.10internal.build.clocksource=0
+produinouno4uopti.menu.clock.8internal=8 MHz internal
+produinouno4uopti.menu.clock.8internal.build.speed=8
+produinouno4uopti.menu.clock.8internal.build.clocksource=0
+produinouno4uopti.menu.clock.5internal=5 MHz internal
+produinouno4uopti.menu.clock.5internal.build.speed=5
+produinouno4uopti.menu.clock.5internal.build.clocksource=0
+produinouno4uopti.menu.clock.4internal=4 MHz internal
+produinouno4uopti.menu.clock.4internal.build.speed=4
+produinouno4uopti.menu.clock.4internal.build.clocksource=0
+produinouno4uopti.menu.clock.1internal=1 MHz internal
+produinouno4uopti.menu.clock.1internal.build.speed=1
+produinouno4uopti.menu.clock.1internal.build.clocksource=0
+produinouno4uopti.menu.clock.28internal=28 MHz internal (overclocked)
+produinouno4uopti.menu.clock.28internal.build.speed=28
+produinouno4uopti.menu.clock.28internal.build.clocksource=0
+produinouno4uopti.menu.clock.32internal=32 MHz internal (overclocked)
+produinouno4uopti.menu.clock.32internal.build.speed=32
+produinouno4uopti.menu.clock.32internal.build.clocksource=0
+
+
+#----------------------------------------#
+# BrownOut detection (BOD) options       #
+#________________________________________#
+produinouno4uopti.menu.bodvoltage.1v9=1.9V
+produinouno4uopti.menu.bodvoltage.1v9.bootloader.bodlevbits=000
+produinouno4uopti.menu.bodvoltage.2v45=2.45V
+produinouno4uopti.menu.bodvoltage.2v45.bootloader.bodlevbits=001
+produinouno4uopti.menu.bodvoltage.2v70=2.70V
+produinouno4uopti.menu.bodvoltage.2v70.bootloader.bodlevbits=010
+produinouno4uopti.menu.bodvoltage.2v85=2.85V
+produinouno4uopti.menu.bodvoltage.2v85.bootloader.bodlevbits=011
+produinouno4uopti.menu.bodmode.disabled=Disabled/Disabled
+produinouno4uopti.menu.bodmode.enabled=Enabled/Enabled
+produinouno4uopti.menu.bodmode.ensampfast=Enabled/Sampled (128 Hz)
+produinouno4uopti.menu.bodmode.ensampslow=Enabled/Sampled (32 Hz)
+produinouno4uopti.menu.bodmode.sampledfast=Sampled/Sampled (128 Hz)
+produinouno4uopti.menu.bodmode.sampledslow=Sampled/Sampled (32 Hz)
+produinouno4uopti.menu.bodmode.sampdisfast=Sampled/Disabled (128 Hz)
+produinouno4uopti.menu.bodmode.sampdisslow=Sampled/Disabled (32 Hz)
+produinouno4uopti.menu.bodmode.endisholdwake=Enabled hold wakeup/Disabled
+produinouno4uopti.menu.bodmode.disabled.bootloader.BODCFG=0x00
+produinouno4uopti.menu.bodmode.enabled.bootloader.bodmodebits=00101
+produinouno4uopti.menu.bodmode.ensampfast.bootloader.bodmodebits=00110
+produinouno4uopti.menu.bodmode.ensampslow.bootloader.bodmodebits=10110
+produinouno4uopti.menu.bodmode.samplefast.bootloader.bodmodebits=01010
+produinouno4uopti.menu.bodmode.sampleslow.bootloader.bodmodebits=11010
+produinouno4uopti.menu.bodmode.sampdisfast.bootloader.bodmodebits=01000
+produinouno4uopti.menu.bodmode.sampdisslow.bootloader.bodmodebits=11000
+produinouno4uopti.menu.bodmode.endisholdwake.bootloader.bodmodebits=01100
+
+#----------------------------------------#
+# Optiboot Entry Conditions              #
+#________________________________________#
+produinouno4uopti.menu.entrycond.default=Default (see documentation)
+produinouno4uopti.menu.entrycond.extr=External (reset pin) (see documentation)
+produinouno4uopti.menu.entrycond.extronly=External reset only (see documentation)
+produinouno4uopti.menu.entrycond.all=Always (see documentation)
+produinouno4uopti.menu.entrycond.poronly= Power on only (see documentation)
+produinouno4uopti.menu.entrycond.swr=SW-only: 8 second timeout (see documentation)
+produinouno4uopti.menu.entrycond.extr_slow=External (reset pin), slow (see documentation)
+produinouno4uopti.menu.entrycond.default.bootloader.entrycond=_extr
+produinouno4uopti.menu.entrycond.extr.bootloader.entrycond=_extr
+produinouno4uopti.menu.entrycond.extronly.bootloader.entrycond=_extronly
+produinouno4uopti.menu.entrycond.poronly.bootloader.entrycond=_poronly_8sec
+produinouno4uopti.menu.entrycond.all.bootloader.entrycond=_all_8sec
+produinouno4uopti.menu.entrycond.swr.bootloader.entrycond=_swronly_8sec
+produinouno4uopti.menu.entrycond.extr_slow.bootloader.entrycond=_extr_8sec
+
+#----------------------------------------#
+# millis/micros timing source            #
+#________________________________________#
+produinouno4uopti.menu.millis.tcb2=TCB2 (recommended)
+produinouno4uopti.menu.millis.disabled=Disabled (delay() only)
+produinouno4uopti.menu.millis.tcb0=TCB0
+produinouno4uopti.menu.millis.tcb1=TCB1
+produinouno4uopti.menu.millis.tca0=TCA0
+produinouno4uopti.menu.millis.tcb0.build.millistimer=B0
+produinouno4uopti.menu.millis.tcb1.build.millistimer=B1
+produinouno4uopti.menu.millis.tcb2.build.millistimer=B2
+produinouno4uopti.menu.millis.tca0.build.millistimer=A0
+produinouno4uopti.menu.millis.disabled.build.millistimer=NONE
+
+#----------------------------------------#
+# printf() version options               #
+#________________________________________#
+produinouno4uopti.menu.printf.default=Default, 1.5k flash, no floats
+produinouno4uopti.menu.printf.full=Full, 2.6k, prints floats
+produinouno4uopti.menu.printf.full.build.printf=-Wl,-u,vfprintf -lprintf_flt
+produinouno4uopti.menu.printf.full.build.printfabr=.pfF
+produinouno4uopti.menu.printf.minimal=Minimal, 1.1k flash used
+produinouno4uopti.menu.printf.minimal.build.printf=-Wl,-u,vfprintf -lprintf_min
+produinouno4uopti.menu.printf.minimal.build.printfabr=.pfM
+
+#----------------------------------------#
+# attachInterrupt Mode                   #
+#________________________________________#
+produinouno4uopti.menu.attach.allenabled=On all pins, with new implementation.
+produinouno4uopti.menu.attach.allenabled.build.attachmode=-DCORE_ATTACH_ALL
+produinouno4uopti.menu.attach.manual=Only enabled ports. Please see documentation.
+produinouno4uopti.menu.attach.manual.build.attachmode=-DCORE_ATTACH_NONE
+produinouno4uopti.menu.attach.oldversion=Old version, (may fix bugs)
+produinouno4uopti.menu.attach.oldversion.build.attachmode=-DCORE_ATTACH_OLD
+produinouno4uopti.menu.attach.manual.build.attachabr=.aMan
+produinouno4uopti.menu.attach.oldversion.build.attachabr=.aOld
+
+#----------------------------------------#
+# Startup time options                   #
+#________________________________________#
+produinouno4uopti.menu.startuptime.8=8ms
+produinouno4uopti.menu.startuptime.1=0ms
+produinouno4uopti.menu.startuptime.1=1ms
+produinouno4uopti.menu.startuptime.2=2ms
+produinouno4uopti.menu.startuptime.4=4ms
+produinouno4uopti.menu.startuptime.16=16ms
+produinouno4uopti.menu.startuptime.32=32ms
+produinouno4uopti.menu.startuptime.64=64ms
+produinouno4uopti.menu.startuptime.0.bootloader.SYSCFG1=0x00
+produinouno4uopti.menu.startuptime.1.bootloader.SYSCFG1=0x01
+produinouno4uopti.menu.startuptime.2.bootloader.SYSCFG1=0x02
+produinouno4uopti.menu.startuptime.4.bootloader.SYSCFG1=0x03
+produinouno4uopti.menu.startuptime.8.bootloader.SYSCFG1=0x04
+produinouno4uopti.menu.startuptime.16.bootloader.SYSCFG1=0x05
+produinouno4uopti.menu.startuptime.32.bootloader.SYSCFG1=0x06
+produinouno4uopti.menu.startuptime.64.bootloader.SYSCFG1=0x07
+
+#-------------------------------------#
+#         Wire Mode Selection         #
+# To enable TWI1 or master+slave mode #
+#_____________________________________#
+produinouno4uopti.menu.wiremode.mors=1x Wire, Master or Slave (least Flash & RAM)
+produinouno4uopti.menu.wiremode.mors.build.wiremode=MORS_SINGLE
+produinouno4uopti.menu.wiremode.mors.build.wireabr=.wO
+produinouno4uopti.menu.wiremode.mands=1x Wire, Master and Slave
+produinouno4uopti.menu.wiremode.mands.build.wiremode=MANDS_SINGLE
+produinouno4uopti.menu.wiremode.mands.build.wireabr=.wA
+
+#----------------------------------------#
+# WDT MODE                               #
+#________________________________________#
+produinouno4uopti.menu.WDTtimeout.disabled=Disabled (recommended)
+produinouno4uopti.menu.WDTtimeout.8seconds=Window remains open for 8 Seconds
+produinouno4uopti.menu.WDTtimeout.4seconds=Window remains open for 4 Seconds
+produinouno4uopti.menu.WDTtimeout.2seconds=Window remains open for 2 Seconds
+produinouno4uopti.menu.WDTtimeout.1second=Window remains open for 1 Second
+produinouno4uopti.menu.WDTtimeout.500msec=Window remains open for 500 milliseconds
+produinouno4uopti.menu.WDTtimeout.250msec=Window remains open for 250 milliseconds
+produinouno4uopti.menu.WDTtimeout.125msec=Window remains open for 125 milliseconds
+produinouno4uopti.menu.WDTtimeout.63msec=Window remains open for 62.5 milliseconds
+produinouno4uopti.menu.WDTwindow.disabled=No delay before window "opens"
+produinouno4uopti.menu.WDTwindow.8seconds=8 Second before window "opens"
+produinouno4uopti.menu.WDTwindow.4seconds=4 Second before window "opens"
+produinouno4uopti.menu.WDTwindow.2seconds=2 Second before window "opens"
+produinouno4uopti.menu.WDTwindow.1second=1 Second before window "opens"
+produinouno4uopti.menu.WDTwindow.500msec=500 millisecond before window "opens"
+produinouno4uopti.menu.WDTwindow.250msec=250 millisecond before window "opens"
+produinouno4uopti.menu.WDTwindow.125msec=125 millisecond before window "opens"
+produinouno4uopti.menu.WDTwindow.63msec=62.5 millisecond before window "opens"
+produinouno4uopti.menu.WDTtimeout.disabled.bootloader.wdttimeoutbits=0000
+produinouno4uopti.menu.WDTtimeout.8seconds.bootloader.wdttimeoutbits=1011
+produinouno4uopti.menu.WDTtimeout.4seconds.bootloader.wdttimeoutbits=1010
+produinouno4uopti.menu.WDTtimeout.2seconds.bootloader.wdttimeoutbits=1001
+produinouno4uopti.menu.WDTtimeout.1second.bootloader.wdttimeoutbits=1000
+produinouno4uopti.menu.WDTtimeout.500msec.bootloader.wdttimeoutbits=0111
+produinouno4uopti.menu.WDTtimeout.250msec.bootloader.wdttimeoutbits=0110
+produinouno4uopti.menu.WDTtimeout.125msec.bootloader.wdttimeoutbits=0101
+produinouno4uopti.menu.WDTtimeout.63msec.bootloader.wdttimeoutbits=0100
+produinouno4uopti.menu.WDTwindow.disabled.bootloader.wdtwindowbits=0000
+produinouno4uopti.menu.WDTwindow.8seconds.bootloader.wdtwindowbits=1011
+produinouno4uopti.menu.WDTwindow.4seconds.bootloader.wdtwindowbits=1010
+produinouno4uopti.menu.WDTwindow.2seconds.bootloader.wdtwindowbits=1001
+produinouno4uopti.menu.WDTwindow.1second.bootloader.wdtwindowbits=1000
+produinouno4uopti.menu.WDTwindow.500msec.bootloader.wdtwindowbits=0111
+produinouno4uopti.menu.WDTwindow.250msec.bootloader.wdtwindowbits=0110
+produinouno4uopti.menu.WDTwindow.125msec.bootloader.wdtwindowbits=0101
+produinouno4uopti.menu.WDTwindow.63msec.bootloader.wdtwindowbits=0100
+
+#----------------------------------------#
+# Flash Mapping options                  #
+#________________________________________#
+produinouno4uopti.menu.flmap.lockdefault=Use last FLMAP section, lock FLMAP, provide PROGMEM_MAPPED
+produinouno4uopti.menu.flmap.unlocked=Start w/default, do not lock flmap. No PROGMEM_MAPPED.
+produinouno4uopti.menu.flmap.locksection02=Set FLMAP to section 2, lock FLMAP, provide PROGMEM_MAPPED
+produinouno4uopti.menu.flmap.locksection1=Set FLMAP to section 1, lock FLMAP, provide PROGMEM_MAPPED
+produinouno4uopti.menu.flmap.locksection0=Set FLMAP to section 0, lock FLMAP, provide PROGMEM_MAPPED
+produinouno4uopti.menu.flmap.lockdefault.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION3
+produinouno4uopti.menu.flmap.unlocked.build.flmapopts=
+produinouno4uopti.menu.flmap.locksection02.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION2
+produinouno4uopti.menu.flmap.locksection1.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION1
+produinouno4uopti.menu.flmap.locksection0.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION0
+produinouno4uopti.menu.flmap.lockdefault.build.flmapabr=.fld
+produinouno4uopti.menu.flmap.unlocked.build.flmapabr=.ful
+produinouno4uopti.menu.flmap.locksection02.build.flmapabr=.fl2
+produinouno4uopti.menu.flmap.locksection1.build.flmapabr=.fl1
+produinouno4uopti.menu.flmap.locksection0.build.flmapabr=.fl0
