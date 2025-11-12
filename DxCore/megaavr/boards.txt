@@ -136,6 +136,8 @@ avrddopti.name=AVR DD-series (Optiboot)
 #avrecopti.name=AVR EC-series (Optiboot)
 #avrlaopti.mame=AVR LA-series (Optiboot)
 azduinoboard.name=Azduino Boards (Optiboot)
+produinouno4u.name=Produino Uno 4u (no bootloader)
+produinouno4uopti.name=Produino Uno 4u (Optiboot)
 
 ##########################################################################
 #                                                                        #

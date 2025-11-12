@@ -3387,8 +3387,8 @@
           "category": "Contributed",
           "url": "https://github.com/cowboydaniel/PRODUINO-UNO-4u/raw/main/DxCore-1.5.11-produino1.tar.bz2",
           "archiveFileName": "DxCore-1.5.11-produino1.tar.bz2",
-          "checksum": "SHA-256:f89294e7f9ff0826b65d51bac9180d831f32b408f88414dfee71b223378a0825",
-          "size": "4626537",
+          "checksum": "SHA-256:4a6daaa5e18be31e3392833ec84ab99e579f14525dac4638c1672d3f6c2bc606",
+          "size": "4542217",
           "boards": [
             {
               "name": "DxCore with PRODUINO UNO 4u support: Includes all standard DxCore boards plus PRODUINO UNO 4u (AVR128DA28-based board)"
